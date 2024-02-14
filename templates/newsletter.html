@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Your Email</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+            color: #333;
+            height: 100% !important;
+            margin: 0;
+            padding: 0;
+            width: 100% !important;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .transfers-section {
+            padding: 20px;
+        }
+
+        .btn-confirm {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .flex-container {
+            display: flex;
+            max-width: 600px;
+            justify-content: center;
+            /* Centers content horizontally */
+            align-items: center;
+            /* Centers content vertically */
+        }
+
+        .col-100 {
+            flex: 0 0 auto;
+            /* This allows the content to size based on its content */
+            display: flex;
+            align-items: center;
+        }
+
+        .col-40 {
+            flex: 0 0 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* Grow, Shrink, Basis */
+        }
+
+        .left-club-details {
+            justify-content: right;
+        }
+
+
+        .left-club-details .text-container {
+            margin-right: 10px;
+        }
+
+        .joined-club-details {
+            justify-content: left;
+        }
+
+        .joined-club-details .club-logo {
+            margin-left: 10px;
+        }
+
+        .col-20 {
+            flex: 0 0 20%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .col-50 {
+            flex: 0 0 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .player-image {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border-radius: 50%;
+            /* Adds some spacing between the image and the text */
+        }
+
+        .club-logo {
+            width: 20px;
+            height: auto;
+            margin-right: 10px;
+            margin-top: 5px;
+            /* Adds some spacing between the image and the text */
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            /* This stacks the text vertically */
+        }
+
+        .player-name {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        .player-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .player-info {
+            font-size: 14px;
+            color: #736e6e;
+        }
+
+        .club-name {
+            font-weight: bold;
+            font-size: 13px;
+        }
+
+        .club-name a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .league-name {
+            font-size: 12px;
+            color: #736e6e;
+            line-height: 10px;
+            margin-top: 1px;
+        }
+
+        .player-details {
+            margin-bottom: 12px;
+        }
+
+        .transfer-arrow {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .arrow-container {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .fee-text {
+            font-size: 12px;
+            font-style: italic;
+        }
+
+        .league-logo {
+            height: 10px;
+            width: auto;
+            margin-right: 5px;
+        }
+
+        .transfer-item {
+            position: relative;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .transfer-item::after {
+            content: "";
+            position: absolute;
+            left: 10%;
+            /* spacing from the left */
+            right: 10%;
+            /* spacing from the right */
+            bottom: 0;
+            /* position it at the bottom of the div */
+            height: 1px;
+            /* height of the separator */
+            background-color: lightgrey;
+        }
+
+        /* Remove the separator from the last item */
+        .transfer-item:last-child::after {
+            display: none;
+        }
+
+        .transfer-item:first-child {
+            padding-top: 0px;
+        }
+
+        .footer {
+
+            padding: 10px;
+            text-align: center;
+            background-color: #d7d5d5;
+        }
+
+        .footer p,
+        .footer span,
+        .footer a {
+            color: #999999;
+            font-size: 12px;
+            text-align: center;
+        }
+
+
+        .newsletter-title {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .newsletter-subtitle {
+            font-size: 18px;
+        }
+
+        .header {
+            padding: 15px;
+            text-align: center;
+            color: white;
+            background-color: #3f3d3d;
+        }
+
+        .section-title {
+            font-size: 19px;
+        }
+
+        .section-title img {
+            height: 23px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .section-title span {
+            vertical-align: middle;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <span class="newsletter-title">DAILY MERCATO</span>
+            <br>
+            <span class="newsletter-subtitle">Tuesday 18th August, 2023</span>
+        </div>
+
+        <!-- Transfer List -->
+        <div class="transfers-section">
+            <div class="section-title">
+                <img class="transfer-logo"
+                    src="https://thetransferledger-newsletters.s3.eu-west-1.amazonaws.com/images/transfer-logo.png"
+                    alt="Transfer Logo">
+                <span><b>Transfers of the day:</b></span>
+            </div>
+            {% for transfer in transfers %}
+            <div class="transfer-item">
+                <div class="flex-container player-details">
+                    <div class="col-100">
+                        <img class="player-image" src="{{ transfer.player_image }}" alt="{{ transfer.player_name }}">
+                        <div class="text-container">
+                            <div><span class="player-name"><a href="{{ transfer.player_transfermarkt_url }}">{{
+                                        transfer.player_name }}</a></span></div>
+                            <div><span class="player-info">{{ transfer.player_position }}, {{ transfer.player_age
+                                    }}</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex-container">
+                    <div class="col-40 left-club-details">
+                        <img class="club-logo" src="{{ transfer.left_club_image }}" alt="{{ transfer.left_club }}">
+                        <div class="text-container">
+                            <div class="club-name"><span><a href="{{ transfer.left_club_transfermarkt_url }}">{{
+                                        transfer.left_club }}</a></span></div>
+                            <div class="league-name"><img class="league-logo" src="{{ transfer.left_league_image }}"
+                                    alt="{{ transfer.left_league }}"><span>{{ transfer.left_league }}</span></div>
+                        </div>
+                    </div>
+                    <div class="col-20">
+                        <div class="arrow-container">
+                            <span class="fee-text">{{ transfer.fee }}</span>
+                            <img class="transfer-arrow"
+                                src="https://thetransferledger-newsletters.s3.eu-west-1.amazonaws.com/images/right-arrow.png"
+                                alt="Transfer Arrow">
+                        </div>
+                    </div>
+                    <div class="col-40 joined-club-details">
+                        <img class="club-logo" src="{{ transfer.joined_club_image }}" alt="{{ transfer.joined_club }}">
+                        <div class="text-container">
+                            <div class="club-name"><span><a href="{{ transfer.joined_club_transfermarkt_url }}">{{
+                                        transfer.joined_club }}</a></span></div>
+                            <div class="league-name"><img class="league-logo" src="{{ transfer.joined_league_image }}"
+                                    alt="{{ transfer.joined_league }}"><span>{{ transfer.joined_league }}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>Data and information provided in this newsletter are sourced from Transfermarkt. All rights and credits
+                for the data belong to Transfermarkt. This newsletter is not affiliated with, endorsed by, or sponsored
+                by Transfermarkt.
+            </p>
+            <p> Don't like these emails? <u><a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a></u>.</p>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
